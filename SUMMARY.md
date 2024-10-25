@@ -329,7 +329,6 @@
     * [Extensibility - Connect to Sponsor Banks](g2p-bridge/features/extensibility-connect-to-sponsor-banks.md)
     * [Account Mapper Resolution](g2p-bridge/features/account-mapper-resolution.md)
     * [Reconciliation with Sponsor Bank](g2p-bridge/features/reconciliation-with-sponsor-bank.md)
-    * [Asynchronous Processing](g2p-bridge/features/asynchronous-processing.md)
     * [Scaling for High Volumes](g2p-bridge/features/scaling-for-high-volumes.md)
     * [Interoperability](g2p-bridge/features/interoperability.md)
     * [Privacy & Security](g2p-bridge/features/privacy-and-security.md)
