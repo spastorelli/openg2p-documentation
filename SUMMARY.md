@@ -82,6 +82,8 @@
     * [Repositories](social-registry/developer-zone/repositories.md)
     * [Developer Install](social-registry/developer-zone/developer-install/README.md)
       * [📘 Developer Install of OpenG2P Package on Linux](social-registry/developer-zone/developer-install-of-openg2p-package-on-linux.md)
+    * [Design Notes](social-registry/developer-zone/design-notes/README.md)
+      * [Data Sharing](social-registry/developer-zone/design-notes/data-sharing.md)
     * [Odoo Modules](social-registry/developer-zone/odoo-modules/README.md)
       * [ODK App User Mapping](social-registry/developer-zone/odoo-modules/odk-app-user-mapping.md)
 * [PBMS](pbms/README.md)
