@@ -339,6 +339,7 @@
     * [Deployment Artefacts](g2p-bridge/deployment/deployment-artefacts.md)
     * [Deployment of G2P Bridge](g2p-bridge/deployment/deployment-of-g2p-bridge.md)
     * [Deployment of Example Bank](g2p-bridge/deployment/deployment-of-example-bank.md)
+    * [Bank Connector Interface Guide](g2p-bridge/deployment/bank-connector-interface-guide.md)
   * [Developer Zone](g2p-bridge/development/README.md)
     * [Design](g2p-bridge/development/design-specifications/README.md)
       * [IN APIs from PBMS](g2p-bridge/development/design-specifications/persistent-objects/README.md)

@@ -57,20 +57,22 @@ The fields and their descriptions are given below.
 
 
 
-<figure><img src="../../.gitbook/assets/payment-config.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2024-10-28 at 4.36.14 PM.png" alt=""><figcaption></figcaption></figure>
 
 |                                  |                                                                                                                                 |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | Payment Endpoint URL             | Specify the URL for payment disbursement.                                                                                       |
 | Status Endpoint URL              | Specify the URL for payment status.                                                                                             |
+| Envelope Creation URL            | Specify the URL for disbursement envelope creation.                                                                             |
+| Envelope Status URL              | Specify the URL for disbursement envelope status.                                                                               |
 | API Timeout                      | Set the maximum time (in seconds) for the API request to complete.                                                              |
 | Status Check Cron Enabled        | Click the check box to enable cron job.                                                                                         |
 | Status Cron Job Interval Minutes | Specify the time interval of the cron job.                                                                                      |
 | Filter Batches to Send           | Filter the batches based on disbursement mode. The disbursement can be cash on hand, digital transaction and voucher payment.   |
 | Payee ID Field                   | Select the appropriate value from the drop-down. It auto populates the ID Type for Payee ID, Payee Prefix, Payee Suffix fields. |
 | ID Type for Payee ID             | Enter the type of ID used for payees                                                                                            |
-| Payee Prefix                     | Add a prefix to payee information. It is mandatory only for all options                                                         |
-| Payee Suffix                     | Add a suffix to payee information. It is mandatory only for REG\_ID.                                                            |
+| Payee Prefix                     | Add a prefix to payee information. It is an optional field.                                                                     |
+| Payee Suffix                     | Add a suffix to payee information. It is an optional field.                                                                     |
 | Locale                           | Set the locale for language and formatting preferences.                                                                         |
 
 4. Click the _**Save**_ button to configure the new G2P payment manager.

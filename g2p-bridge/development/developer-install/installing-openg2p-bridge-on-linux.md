@@ -1,6 +1,6 @@
 ---
 icon: laptop-code
-description: Installation of G2P Bridge on developer machine
+description: Installation of G2P Bridge on a developer machine
 ---
 
 # G2P Bridge
@@ -30,7 +30,6 @@ sudo apt upgrade -y
 
 ```bash
 sudo apt install -y python3-pip python3-dev build-essential
-
 ```
 
 3\. Install and configure PostgreSQL
@@ -78,7 +77,20 @@ sudo apt install -y python3-pip python3-dev build-essential
         openg2p-g2pconnect-common-lib==1.1.0 \
         openg2p-g2p-bridge-models==1.0.0 \
         openg2p-g2p-bridge-api==1.0.0
-        
+    ```
+*   Update the .env
+
+    ```
+      G2P_BRIDGE_DB_DBNAME: openg2p_g2p_bridge_db
+      G2P_BRIDGE_DB_HOSTNAME: localhost
+      G2P_BRIDGE_DB_PASSWORD: password
+      G2P_BRIDGE_DB_PORT: 5432
+      G2P_BRIDGE_DB_USERNAME: bridgeuser
+      G2P_BRIDGE_WORKER_TYPE: gunicorn
+      G2P_BRIDGE_HOST: 0.0.0.0
+      G2P_BRIDGE_PORT: '8000'
+      G2P_BRIDGE_NO_OF_WORKERS: '1'
+      G2P_BRIDGE_OPENAPI_ROOT_PATH: '/api/g2p-bridge'
     ```
 *   Migrate the database schema
 
@@ -117,6 +129,24 @@ sudo apt install -y python3-pip python3-dev build-essential
         openg2p-g2p-bridge-bank-connectors==1.0.0 \
         openg2p-g2p-bridge-celery-beat-producers==1.0.0    
     ```
+*   Update the .env
+
+    ```
+        G2P_BRIDGE_CELERY_BEAT_MAPPER_RESOLVE_API_URL: 'http://spar-mapper-api/sync/resolve' # Update the Spar Mapper Resolve URL
+        G2P_BRIDGE_CELERY_BEAT_DB_HOSTNAME: localhost
+        G2P_BRIDGE_CELERY_BEAT_DB_PASSWORD: password
+        G2P_BRIDGE_CELERY_BEAT_CELERY_BROKER_URL: redis://127.0.0.1:6379/0
+        G2P_BRIDGE_CELERY_BEAT_CELERY_BACKEND_URL: redis://127.0.0.1:6379/0
+        G2P_BRIDGE_CELERY_BEAT_BANK_FA_DECONSTRUCT_STRATEGY: ^account_number:(?P<account_number>.*)\.branch_code:(?P<branch_code>.*)\.bank_code:(?P<bank_code>.*)\.fa_type:(?P<fa_type>.*)$
+        G2P_BRIDGE_CELERY_BEAT_MOBILE_WALLET_DECONSTRUCT_STRATEGY: ^mobile_number:(?P<mobile_number>.*)\.wallet_provider_name:(?P<wallet_provider_name>.*)\.wallet_provider_code:(?P<wallet_provider_code>.*)\.fa_type:(?P<fa_type>.*)$
+        G2P_BRIDGE_CELERY_BEAT_EMAIL_WALLET_DECONSTRUCT_STRATEGY: ^email_address:(?P<email_address>.*)\.wallet_provider_name:(?P<wallet_provider_name>.*)\.wallet_provider_code:(?P<wallet_provider_code>.*)\.fa_type:(?P<fa_type>.*)$
+        G2P_BRIDGE_CELERY_BEAT_MAPPER_RESOLVE_FREQUENCY: 60
+        G2P_BRIDGE_CELERY_BEAT_FUNDS_AVAILABLE_CHECK_FREQUENCY: 60
+        G2P_BRIDGE_CELERY_BEAT_FUNDS_BLOCKED_FREQUENCY: 60
+        G2P_BRIDGE_CELERY_BEAT_FUNDS_DISBURSEMENT_FREQUENCY: 60
+        G2P_BRIDGE_CELERY_BEAT_MT940_PROCESSOR_FREQUENCY: 60
+        G2P_BRIDGE_CELERY_BEAT_PROCESS_FUTURE_DISBURSEMENT_SCHEDULES: true 
+    ```
 *   Run redis-server
 
     ```
@@ -153,6 +183,24 @@ sudo apt install -y python3-pip python3-dev build-essential
         openg2p-g2p-bridge-models==1.0.0 \
         openg2p-g2p-bridge-bank-connectors==1.0.0 \
         openg2p-g2p-bridge-celery-workers==1.0.0    
+    ```
+*   Update the .env
+
+    ```
+      G2P_BRIDGE_CELERY_WORKERS_MAPPER_RESOLVE_API_URL: 'http://mapper/sync/resolve'
+      G2P_BRIDGE_CELERY_WORKERS_MAPPER_RESOLVE_RETRY_DELAY: 5
+      G2P_BRIDGE_CELERY_WORKERS_DB_DBNAME: openg2p_g2p_bridge_db
+      G2P_BRIDGE_CELERY_WORKERS_DB_USERNAME: bridgeuser
+      G2P_BRIDGE_CELERY_WORKERS_DB_PASSWORD: password
+      G2P_BRIDGE_CELERY_WORKERS_DB_HOSTNAME: localhost
+      G2P_BRIDGE_CELERY_WORKERS_BANK_FA_DECONSTRUCT_STRATEGY: bank_(?P<account_number>\d+)_(?P<bank_code>\d+)_(?P<branch_code>\d+)_(?P<account_type>\w+)
+      G2P_BRIDGE_CELERY_WORKERS_MOBILE_WALLET_DECONSTRUCT_STRATEGY: mobile_(?P<mobile_number>\d+)_(?P<mobile_wallet_provider>\w+)
+      G2P_BRIDGE_CELERY_WORKERS_EMAIL_WALLET_DECONSTRUCT_STRATEGY: email_(?P<email_address>\w+)_(?P<email_wallet_provider>\w+)
+      G2P_BRIDGE_CELERY_PRODUCERS_FUNDS_AVAILABLE_CHECK_URL_EXAMPLE_BANK: http://127.0.0.1:8003/check_funds"
+      G2P_BRIDGE_CELERY_PRODUCERS_FUNDS_BLOCK_URL_EXAMPLE_BANK: http://127.0.0.1:8003/block_funds"
+      G2P_BRIDGE_CELERY_PRODUCERS_FUNDS_DISBURSEMENT_URL_EXAMPLE_BANK: http://127.0.0.1:8003/initiate_payment"
+      G2P_BRIDGE_CELERY_WORKERS_CELERY_BROKER_URL: redis://127.0.0.1:6379/0
+      G2P_BRIDGE_CELERY_WORKERS_CELERY_BACKEND_URL: redis://127.0.0.1:6379/0
     ```
 *   Run redis-server
 
