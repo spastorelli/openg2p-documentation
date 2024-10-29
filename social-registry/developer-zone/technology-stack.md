@@ -28,6 +28,6 @@ description: The following technologies and tools are used by Social Registry
 | Queuing                 | Kafka                                                               |         | Apache 2.0                                                        |
 | Web proxy               | Nginx                                                               |         | BSD                                                               |
 | Email Service           | [ix.ai SMTP](https://gitlab.com/ix.ai/smtp)                         |         | MIT License                                                       |
-| ID Generation           | MOSIP ID Generator                                                  |         | MPL                                                               |
-| Key manager             | [MOSIP Key Manager](https://docs.mosip.io/1.2.0/modules/keymanager) |         | MPL                                                               |
+| ID Generation           | MOSIP ID Generator                                                  |         | MPL 2.0                                                           |
+| Key manager             | [MOSIP Key Manager](https://docs.mosip.io/1.2.0/modules/keymanager) |         | MPL 2.0                                                           |
 |                         |                                                                     |         |                                                                   |
