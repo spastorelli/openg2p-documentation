@@ -43,8 +43,10 @@ Follow the [Installation guide](installation-and-troubleshooting.md) to install/
             "topic.prefix": "${DB_PREFIX_INDEX}",
             "table.include.list": "",
             "heartbeat.interval.ms": "${DEFAULT_DEBEZIUM_CONNECTOR_HEARTBEAT_MS}",
-            "decimal.handling.mode": "double"
-        }
+            "decimal.handling.mode": "double",
+            "tombstones.on.delete": false
+        },
+        "wait_after_init_secs": 20
     }
     ```
 
@@ -76,6 +78,7 @@ Each `$` in the json file will be treated as an environment variable. Environmen
             "connection.password": "${OPENSEARCH_PASSWORD}",
             "tasks.max": "1",
             "topics": "${DB_PREFIX_INDEX}.public.res_partner",
+            "index.write.method": "upsert",
             "key.ignore": "false",
             "schema.ignore": "true",
             "key.converter": "org.apache.kafka.connect.json.JsonConverter",
@@ -93,7 +96,7 @@ Each `$` in the json file will be treated as an environment variable. Environmen
             "transforms.keyExtId.field": "id",
 
             "transforms.valExt.type": "org.openg2p.reporting.kafka.connect.transforms.ApplyJq${dollar}Value",
-            "transforms.valExt.expr": ".payload.after + {source_ts_ms: .payload.source.ts_ms}",
+            "transforms.valExt.expr": ".payload.after + (if .payload.after then {source_ts_ms: .payload.source.ts_ms} else null end)",
 
             "transforms.tsconvert01.type": "org.openg2p.reporting.kafka.connect.transforms.TimestampConverterAdv${dollar}Value",
             "transforms.tsconvert01.field": "source_ts_ms",
@@ -148,19 +151,7 @@ Each `$` in the json file will be treated as an environment variable. Environmen
       "transforms.join02.es.username": "${OPENSEARCH_USERNAME}",
       "transforms.join02.es.password": "${OPENSEARCH_PASSWORD}",
       ```
-  *   If you want to add data/fields from one connector to another index on OpenSearch, use the DynamicNewFieldInsertBack transform. For example; NATIONAL IDs of registrants are saved in g2p\_reg\_id table. But if that field data is needed on res\_partner index (main registrant data table) the following can be done on the g2p\_reg\_id connector. (The following adds `reg_id_NATIONAL_ID` field into res\_partner index from g2p\_reg\_id connector into the document with ID from `partner_id` field) :
-
-      ```json
-      "transforms.insertBack1.type": "org.openg2p.reporting.kafka.connect.transforms.DynamicNewFieldInsertBack${dollar}Value",
-      "transforms.insertBack1.id.expr": ".partner_id",
-      "transforms.insertBack1.condition": ".id_type_name == \"NATIONAL ID\"",
-      "transforms.insertBack1.value": "{reg_id_NATIONAL_ID: .value}",
-      "transforms.insertBack1.es.index": "${DB_PREFIX_INDEX}.public.res_partner",
-      "transforms.insertBack1.es.url": "${OPENSEARCH_URL}",
-      "transforms.insertBack1.es.security.enabled": "${OPENSEARCH_SECURITY_ENABLED}",
-      "transforms.insertBack1.es.username": "${OPENSEARCH_USERNAME}",
-      "transforms.insertBack1.es.password": "${OPENSEARCH_PASSWORD}",
-      ```
+  * If you want to add data/fields from one connector to another index on OpenSearch, use the DynamicNewFieldInsertBack transform. For example, see the `insertBack` section in [this sample connector](https://github.com/OpenG2P/openg2p-reporting/blob/develop/scripts/social-registry/opensearch-connectors/14.reg\_id.json).
   *   If you wish to apply a [Jq filter](https://jqlang.github.io/jq/manual/) on the record, use ApplyJq transform. The current record will be replaced with the result after applying Jq. Example:
 
       ```json
@@ -196,9 +187,9 @@ Each `$` in the json file will be treated as an environment variable. Environmen
 * For detailed transform configuration, refer to [Apache Kafka Connect Transformations](https://kafka.apache.org/documentation/#connect\_transforms) doc.
 * For a list of all available SMTs and their configs, refer to [Reporting Kafka Connect Transforms](../kafka-connect-transform-reference.md).
 
-#### Capturing Change History
+#### Capturing Record History
 
-*   If you also wish to record all the changes that are made to the records of a table, create a new OpenSearch connector for the same topic as given in [this section](connector-creation-guide.md#opensearch-connector-creation) and change the following properties.
+*   If you also wish to record the history of how records of a table have changed, create a new OpenSearch connector for the same topic as given in [this section](connector-creation-guide.md#opensearch-connector-creation) and change the following properties.
 
     ```json
     {
@@ -214,7 +205,12 @@ Each `$` in the json file will be treated as an environment variable. Environmen
         }
     }
     ```
-* With this configuration, you will have two OpenSearch connectors. One that tracks the latest data of a table. And one that tracks all the changes. Correspondingly you have two indexes on OpenSearch (one with `_history` and one with regular data).
+*   Remove this line from the configuration.
+
+    ```json
+    "index.write.method": "upsert",
+    ```
+* With this configuration, you will have two OpenSearch connectors. One that tracks the latest data of a table. And one that tracks the history. Correspondingly you have two indexes on OpenSearch (one with `_history` and one with regular data).
 
 ## OpenSearch dashboard creation
 
