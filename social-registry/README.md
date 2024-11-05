@@ -24,6 +24,14 @@ The registry can host demographic data of both individuals and groups (family/ho
 Social Registry Functional Architecture
 {% endembed %}
 
+## Technical architecture
+
+
+
+{% embed url="https://miro.com/app/board/uXjVLM9EXEk=/" %}
+Social Registry Technical Architecture&#x20;
+{% endembed %}
+
 ## Salient features
 
 The salient features of OpenG2P Social Registry are the following:
