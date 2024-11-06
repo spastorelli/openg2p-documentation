@@ -20,6 +20,8 @@ This document provides instructions to archive, delete, end, and re-activate a p
 
 The user must have the Program Administrator role.
 
+{% include "../../../../.gitbook/includes/available-to-pro-customers.md" %}
+
 ## Table of contents
 
 [Archive a program](archive-delete-end-and-re-activate-a-program.md#archive-a-program)
@@ -42,7 +44,7 @@ _**Programs**_ screen is displayed.
 
 <figure><img src="../../../../.gitbook/assets/program-list.png" alt=""><figcaption></figcaption></figure>
 
-2. Click a program that has to be archived.&#x20;
+2. Click a program that has to be archived.
 
 For example, here the program "Program1" selected.
 
@@ -69,7 +71,7 @@ A _**Confirmation**_ dialog box is displayed.
 
 The steps to find the archived program are:
 
-7. In the _**Programs**_ screen, click the _**Filters**_ button and select the option _**Archived**_.&#x20;
+7. In the _**Programs**_ screen, click the _**Filters**_ button and select the option _**Archived**_.
 
 <figure><img src="../../../../.gitbook/assets/program-archived.png" alt=""><figcaption></figcaption></figure>
 
@@ -87,7 +89,7 @@ _**Programs**_ screen is displayed.
 
 <figure><img src="../../../../.gitbook/assets/program-list.png" alt=""><figcaption></figcaption></figure>
 
-2. Click a program that has to be deleted.&#x20;
+2. Click a program that has to be deleted.
 
 For example, here the program "Program1" selected.
 

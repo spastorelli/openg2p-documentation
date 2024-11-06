@@ -22,6 +22,8 @@ This guide provides steps to configure the payment manager in a program.
 
 The user must have the Program Administrator role.
 
+{% include "../../../../.gitbook/includes/available-to-pro-customers.md" %}
+
 ## Steps
 
 1. Navigate to _Programs_ using the menu bar.

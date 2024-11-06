@@ -20,6 +20,8 @@ This guide provides steps to create and configure the deduplication manager insi
 
 The user must have the Program Manager role.
 
+{% include "../../../../.gitbook/includes/available-to-pro-customers.md" %}
+
 ## Steps
 
 1. Navigate to _Programs_ using the menu bar.

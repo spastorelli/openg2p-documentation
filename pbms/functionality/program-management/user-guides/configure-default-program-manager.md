@@ -14,11 +14,13 @@ layout:
 
 # 📔 Configure Default Program Manager
 
-This document provides instructions to configure default program manager in the program module.&#x20;
+This document provides instructions to configure default program manager in the program module.
 
 ## Prerequisites
 
 The user must have the Program Administrator role.
+
+{% include "../../../../.gitbook/includes/available-to-pro-customers.md" %}
 
 ## Procedure
 
