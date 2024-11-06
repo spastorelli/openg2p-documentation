@@ -1,3 +1,7 @@
+---
+icon: lock-keyhole
+---
+
 # Privacy and Security
 
 OpenG2P is a robust and versatile platform built upon the Odoo framework, providing governments and organisations with a comprehensive solution for delivering benefits efficiently. As OpenG2P handles sensitive beneficiary information including personally identifiable information (PII), maintaining the highest standards of security is paramount.
@@ -24,20 +28,20 @@ Input security is handled in the following ways:
 
 * Input validation
 * Memory safe programming language (Python)
-* Type safe programming using Python Pydantic&#x20;
-* ORM capabilities to avoid SQL Injection threats&#x20;
+* Type safe programming using Python Pydantic
+* ORM capabilities to avoid SQL Injection threats
 
 ## Secure deployment
 
-OpenG2P offers support for Kubernetes-based production grade deployment with security features like [Wireguard](https://www.wireguard.com/), [Istio](https://istio.io/), access control, traffic control etc. [ Learn more >>](broken-reference)
+OpenG2P offers support for Kubernetes-based production grade deployment with security features like [Wireguard](https://www.wireguard.com/), [Istio](https://istio.io/), access control, traffic control etc. [Learn more >>](broken-reference/)
 
 ## FAQ
 
 <details>
 
-<summary>OpenG2P is an open-source software.  How secure is it?</summary>
+<summary>OpenG2P is an open-source software. How secure is it?</summary>
 
-In general, for any product, security is handled at multiple levels.&#x20;
+In general, for any product, security is handled at multiple levels.
 
 * Product security features
 
@@ -53,7 +57,6 @@ While deployment infrastructure is a choice of the implementer/system integrator
 
 * Security policies and processes
 
-OpenG2P team can help review security policies defined by the government/system Integrator. \
-
+OpenG2P team can help review security policies defined by the government/system Integrator. \\
 
 </details>

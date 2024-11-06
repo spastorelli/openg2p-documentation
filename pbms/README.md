@@ -1,5 +1,6 @@
 ---
 description: GP2 MIS - Program and Beneficiary Management System
+icon: solar-system
 ---
 
 # PBMS

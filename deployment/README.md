@@ -1,5 +1,6 @@
 ---
 description: OpenG2P Deployment
+icon: square-down
 layout:
   title:
     visible: true
@@ -18,7 +19,7 @@ layout:
 OpenG2P offers production-grade deployment scripts, [Helm charts](helm-charts.md) and utilities based on reputed open-source components like Kubernetes, Rancher etc. This architecture is also referred to as **V4**\*. The deployment infra may be used for sandbox, pilot or full-scale rollout. All modules are available as Dockers and Kubernetes is used as the orchestration platform. The deployment architecture is depicted below.
 
 {% hint style="info" %}
-\* This deployment architecture is referred to as "V4" by the OpenG2P team due to the way it has evolved over the past few years.  The V4 deployment architecture is an extension of MOSIP's [V3 architecture](https://github.com/mosip/k8s-infra).  Unlike V3, where separate clusters are created for environments, in V4, all sandboxes and environments reside in the same cluster with finer access controls
+\* This deployment architecture is referred to as "V4" by the OpenG2P team due to the way it has evolved over the past few years. The V4 deployment architecture is an extension of MOSIP's [V3 architecture](https://github.com/mosip/k8s-infra). Unlike V3, where separate clusters are created for environments, in V4, all sandboxes and environments reside in the same cluster with finer access controls
 {% endhint %}
 
 ## Deployment architecture (V4)
@@ -32,9 +33,9 @@ Essentially, for an organisation, you will need two clusters - one for [Rancher]
 1. Multiple Wireguard servers enabling separate [access channels](deployment-guide/private-access-channel.md).
 2. Access control at the application level where login to dashboards, and portals is controlled via authentication and authorisation defined in Keycloak.
 
-The Keycloak inside the Rancher cluster provides **organisation-wide authorization** and offers single sign-on to all resources.&#x20;
+The Keycloak inside the Rancher cluster provides **organisation-wide authorization** and offers single sign-on to all resources.
 
-The above is a recommended architecture that also optimises resource usage.&#x20;
+The above is a recommended architecture that also optimises resource usage.
 
 For deployment, set up the following in the sequence given below:
 

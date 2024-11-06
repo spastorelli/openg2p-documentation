@@ -1,5 +1,6 @@
 ---
 description: OpenG2P Interoperability
+icon: yelp
 ---
 
 # Interoperability

@@ -1,4 +1,5 @@
 ---
+icon: dog-leashed
 layout:
   title:
     visible: true

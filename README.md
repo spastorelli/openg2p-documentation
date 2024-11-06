@@ -1,4 +1,5 @@
 ---
+icon: mushroom
 cover: .gitbook/assets/landing-page-banner.png
 coverY: 0
 layout:
@@ -18,6 +19,8 @@ layout:
 ---
 
 # Overview
+
+{% embed url="https://www.loom.com/share/c32e901e012a446eb0646ffdb90a3cd7" %}
 
 [OpenG2P](https://openg2p.org) is an open-source platform that enables governments and humanitarian organisations to deliver critical social benefits directly to those who need them. It facilitates the building of secure, inclusive and efficient registries, program management capabilities and digital cash transfer delivery systems.
 
@@ -51,4 +54,4 @@ All the modules are designed to be installed and used standalone. However, the f
 
 ## Getting started
 
-To run OpenG2P suite and experience all that it offers, a good start point is [**OpenG2P In a Box**](deployment/openg2p-in-a-box.md).&#x20;
+To run OpenG2P suite and experience all that it offers, a good start point is [**OpenG2P In a Box**](deployment/openg2p-in-a-box.md).
