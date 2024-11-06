@@ -24,12 +24,6 @@ Note:
 
 Refer the [Create User and Assign Role](../../administration/role-based-access-control/user-guides/assign-roles-to-users.md) guide to know how to assign role for a User.
 
-## Procedure
-
-### Programs
-
-
-
 {% stepper %}
 {% step %}
 ## Go to Programs
@@ -38,7 +32,7 @@ Click the main menu icon ![](../../../../.gitbook/assets/main-menu.png) and sele
 {% endstep %}
 
 {% step %}
-
+## Edit Program
 
 <img src="../../../../.gitbook/assets/programs.png" alt="Choose Programs in the menu" data-size="original">
 
